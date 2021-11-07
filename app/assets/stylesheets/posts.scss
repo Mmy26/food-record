@@ -1,0 +1,43 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
+
+.bg-enji {
+  background-color: #b7193f;
+}
+
+.text-head {
+  color: #ffffff;
+}
+
+.text-center {
+  background-image: image-url('foodback.png');
+  background-size: cover;
+  background-position: bottom center;
+  max-width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+}
+.fw-light {
+   color: #ffffff;
+}
+
+.mx-auto {
+  max-width: 40rem;
+  background-color: rgba(0,0,0,0.5);
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
