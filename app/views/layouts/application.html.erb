@@ -11,7 +11,70 @@
   </head>
 
   <body>
+    <header>
+     <div class="collapse bg-enji" id="navbarHeader">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-8 col-md-7 py-4">
+              <h4 class="text-white">About</h4>
+              <p class="text-head">食事を撮影した写真を投稿することで管理するアプリです。</p>
+            </div>
+            <div class="col-sm-4 offset-md-1 py-4">
+              <h4 class="text-white">Account</h4>
+              <ul class="list-unstyled">
+               <% if user_signed_in? %>
+                  <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:"text-white" %>
+                <% else %>
+                   <%= link_to '新規登録', new_user_registration_path, class:"text-white" %>
+                   <%= link_to 'ログイン', new_user_session_path, class:"text-white" %>
+                <% end %>
+             </ul>
+            </div>
+         </div>
+       </div>
+     </div>
+     <div class="navbar navbar-dark bg-enji shadow-sm">
+       <div class="container">
+          <a href="/" class="navbar-brand d-flex align-items-center">
+            <svg version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="512px" height="512px" viewBox="0 0 512 512" style="width: 16px; height: 16px; opacity: 1;" xml:space="preserve">
+             <style type="text/css">.st0{fill:#4B4B4B;}</style>
+             <g>
+               <polygon class="st0" points="30.922,460.156 481.094,460.156 481.094,421.969 30.922,431 	" style="fill: rgb(255, 255, 255);"></polygon>
+                <polygon class="st0" points="30.922,499.641 481.094,508.688 481.094,470.484 30.922,470.484 	" style="fill: rgb(255, 255, 255);"></polygon>
+                <path class="st0" d="M153.094,340.672v22.016c0,22.844,46.078,41.375,102.906,41.375s102.906-18.531,102.906-41.375v-22.016
+                  C449.047,301.063,512,211,512,106.219C512,49.391,397.391,3.313,256,3.313C114.625,3.313,0,49.391,0,106.219
+                  C0,211,62.969,301.063,153.094,340.672z M41.828,106.219c0-2.234,8.984-17.984,48.75-33.953
+                  C133.469,55.031,193.75,45.141,256,45.141s122.531,9.891,165.438,27.125c39.75,15.969,48.734,31.719,48.734,33.953
+                  s-8.984,17.969-48.734,33.953C378.531,157.406,318.25,167.297,256,167.297s-122.531-9.891-165.422-27.125
+                 C50.813,124.188,41.828,108.453,41.828,106.219z" style="fill: rgb(255, 255, 255);"></path>
+              </g>
+              </svg>
+            <strong>Food Recorder</strong>
+          </a>
+          <p class="notice bg-enji text-white"><%= notice %></p>
+          <p class="alert bg-enji text-white"><%= alert %></p>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </div>
+    </header>
     <%= yield %>
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+      <div class="col-md-4 d-flex align-items-center">
+        <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+          <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
+       </a>
+        <span class="text-bottom">&copy; Food Recorder</span>
+      </div>
+
+      <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+        <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"/></svg></a></li>
+        <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"/></svg></a></li>
+        <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"/></svg></a></li>
+      </ul>
+    </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
   </body>
 </html>
