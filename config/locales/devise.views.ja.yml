@@ -23,6 +23,10 @@ ja:
               blank: "が空では登録できません"
             height:
                blank: "が空では登録できません"
+        post:
+          attributes:
+            image:
+              blank: "が空では登録できません" 
     attributes:
       user:
         nickname: ニックネーム
@@ -53,6 +57,10 @@ ja:
         unconfirmed_email: 未確認Eメール
         unlock_token: ロック解除用トークン
         updated_at: 更新日
+      post:
+        image: 画像
+        amount_id: 食事の量
+        timing_id: 食事の時間
     models:
       user: ユーザー
   devise:
