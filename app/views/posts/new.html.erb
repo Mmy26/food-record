@@ -1,0 +1,43 @@
+<div class="inner">
+  <div class="form__wrapper">
+    <h2 class="page-heading d-flex flex-column align-items-center ">新規投稿</h2>
+      <%= form_with model: @post, local: true do |f| %>
+        <div class="posts-form  d-flex flex-column align-items-center row-cols-sm-2 bg-light">
+          <%= render "shared/error_messages",model: f.object %>
+      
+            <div class="img-upload">
+              <div class="weight-bold-text">
+                商品画像
+                <span class="indispensable">必須</span>
+              </div>
+             <div class="click-upload">
+                <p>
+                  クリックしてファイルをアップロード
+                </p>
+                <%= f.file_field :image, id:"post-image" %>
+              </div>
+            </div>
+          <div class="field">
+            <label for="content">備考</label><br />
+            <input autofocus="autofocus" autocomplete="content" type="content" value="" name="post_content" id="post_content" class='bikou w-100'/>
+          </div>
+
+          <div class="weight-bold-text">
+            食事の量
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.collection_select(:amount_id, Amount.all, :id, :name, {}, {class:"select-box W-100", id:"post-amount"}) %>
+
+          <div class="weight-bold-text">
+            食事の時間
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.collection_select(:timing_id, Timing.all, :id, :name, {}, {class:"select-box W-100", id:"post-timing"}) %>
+          <div class="actions">
+            <input type="submit" name="commit" value="投稿" class="form__btn" data-disable-with="投稿" />
+          </div>
+        </div>
+      <% end %>    
+  
+  </div>
+</div>
