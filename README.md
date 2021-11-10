@@ -3,7 +3,7 @@
 
 * アプリケーション概要	食事を画像で記録できるアプリ
 
-* URL	
+* URL	https://food-record-36994.herokuapp.com/
 
 * テスト用アカウント	
   * Basic認証 ID	

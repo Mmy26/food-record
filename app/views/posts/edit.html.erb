@@ -1,6 +1,8 @@
-<div class="inner">
-  <div class="form__wrapper">
-    <h2 class="page-heading d-flex flex-column align-items-center ">投稿の編集</h2>
-    <%= render partial: "form", locals: { post: @post } %>
+<%= render "shared/header"%>
+  <div class="inner">
+    <div class="form__wrapper">
+      <h2 class="page-heading d-flex flex-column align-items-center ">投稿の編集</h2>
+      <%= render partial: "form", locals: { post: @post } %>
+    </div>
   </div>
-</div>
+<%= render "shared/footer"%>
