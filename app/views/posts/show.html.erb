@@ -1,6 +1,7 @@
 <%= render "shared/header"%>
+<h2 class="page-heading">投稿内容</h2>
+<div class="show-main bg-light">
   <div class="post-show">
-    <h2 class="page-heading d-flex align-items-center ">投稿内容</h2>
     <div class="posts-form bg-light">
       <div class="post-img-content">
         <%= image_tag @post.image ,class:"post-box-img" %>
@@ -36,23 +37,37 @@
   </div>
 
   <div class="comment-box">
-    <form>
+
       <div class="form-floating">
-        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-        <label for="floatingTextarea2">Comments</label>
-      </div>
+        <%= form_with(model: [@post, @comment], local: true) do |f| %>
+          <%= f.text_area :text, placeholder: "Comment", rows: "2" %>
+          <div class = "comment-sub">
+            <%= f.submit "コメントする" %>
+          </div>
+        <% end %>
+        
       <p class="comment-warn">
         食事やトレーニングについてアドバイスをお願いします。
       </p>
-      <button type="button" class="btn btn-outline-success">コメントする</button>
-    </form>
+      
+
+    <div class="comments">
+      <h5>＜コメント一覧＞</h5>
+      <% @comments.each do |comment| %>
+        <p>
+          <strong><%= comment.user.nickname %>：</strong>
+          <%= comment.text %>
+        </p>
+      <% end %>
+    </div>
   </div>
   <div class="links">
-    <a href="#" class="change-post-btn">
-      ＜ 前の投稿
-    </a>
-    <a href="#" class="change-post-btn">
-      後ろの投稿 ＞
-    </a>
+    <div class="change-post-btn">
+      <%= link_to '＜前の投稿', "/posts/#{@post.id-1}"%>
+    </div>
+    <div class="change-post-btn">
+      <%= link_to '後ろの投稿＞', "/posts/#{@post.id+1}"%>
+    </div>
   </div>
+</div>  
 <%= render "shared/footer"%>
