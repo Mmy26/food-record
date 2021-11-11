@@ -4,8 +4,9 @@ Rails.application.routes.draw do
       get '/users', to: redirect("/users/sign_up")
     end
   root to: "posts#index"
-  resources :posts
-
+  resources :posts do
+    resources :comments, only: :create
+  end
  
 
 end
